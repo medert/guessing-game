@@ -1,14 +1,22 @@
 # Your code goes here
 
 class Game
-  attr_accessor :level
+  attr_accessor :secret_num
 
   def initialize(level)
     case level.downcase
     when 'easy'
-      @level = rand(10) + 1
+      @secret_num = rand(10) + 1
     when 'hard'
-      @level = rand(20) + 1
+      @secret_num = rand(20) + 1
+    end
+  end
+
+  def check_guess(guess)
+    if @secret_num == guess
+      return true
+    else
+      return false
     end
   end
 

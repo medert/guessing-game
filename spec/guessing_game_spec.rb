@@ -6,16 +6,28 @@ require_relative "../guessing_game.rb"
 RSpec.describe Game do
   game_1 = Game.new('easy')
   game_2 = Game.new('hard')
-  describe '.level' do
+
+  describe '.secret_num' do
     it "should be set to a range of 1-10" do
       200.times do
-        expect(game_1.level).to be_between(1,10).inclusive
+        expect(game_1.secret_num).to be_between(1,10).inclusive
       end
     end
     it "should be set to a range of 1-20" do
       200.times do
-        expect(game_2.level).to be_between(1,20).inclusive
+        expect(game_2.secret_num).to be_between(1,20).inclusive
       end
+    end
+  end
+
+  describe '.check_guess' do
+    guess_num = game_1.secret_num
+    it "check wheather player guessed secreet number" do
+      expect(game_1.check_guess(guess_num)).to be true
+    end
+    it "check wheather player guessed secreet number" do
+      # binding.pry
+      expect(game_1.check_guess(guess_num + 1)).to be false
     end
   end
 end
