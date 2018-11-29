@@ -32,7 +32,9 @@ while true
   score += 1
   print "> "
   guess = gets.chomp.to_i
-  if game.check_guess(guess)
+  if guess != Integer
+    puts "Invalid input. Please, enter numbers only!"
+  elsif game.check_guess(guess)
     puts "You win! Nice job!"
     break
   else

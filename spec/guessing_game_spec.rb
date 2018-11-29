@@ -22,11 +22,10 @@ RSpec.describe Game do
 
   describe '.check_guess' do
     guess_num = game_1.secret_num
-    it "check wheather player guessed secreet number" do
+    it "check wheather player guessed secret number" do
       expect(game_1.check_guess(guess_num)).to be true
     end
-    it "check wheather player guessed secreet number" do
-      # binding.pry
+    it "check wheather player guessed secret number" do
       expect(game_1.check_guess(guess_num + 1)).to be false
     end
   end
